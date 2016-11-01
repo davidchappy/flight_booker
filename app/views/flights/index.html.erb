@@ -2,10 +2,10 @@
 
 <%= form_tag('/', method: 'get') do %>
   <%= label_tag :from %> 
-  <%= select_tag :from, options_for_select(@from) %>
+  <%= select_tag :from, options_for_select(@airports) %>
 
   <%= label_tag :to %> 
-  <%= select_tag :to, options_for_select(@to) %>
+  <%= select_tag :to, options_for_select(@airports) %>
 
   <%= label_tag :passengers %> 
   <%= select_tag :passengers, options_for_select(@passengers) %>
@@ -14,4 +14,20 @@
   <%= select_tag :date, options_for_select(@dates) %>
 
   <%= submit_tag "Search flights" %>
+<% end %>
+
+<% unless @flights.empty? %>
+  <%= form_tag('/', method: 'get') do %>
+    <% @flights.each_with_index do |flight, index| %>
+      <% if index == 0 %>
+        <%= radio_button_tag(:flight, flight.id, checked: true) %>  
+      <% else %>
+        <%= radio_button_tag(:flight, flight.id) %>  
+      <% end %>
+      <%= label_tag :flight, "Fly from #{flight.origin.code} to #{flight.destination.code}" %>
+      <br>
+    <% end %>
+    <%= hidden_field_tag :passengers, @count %> 
+    <%= submit_tag "Choose flight" %>
+  <% end %>
 <% end %>

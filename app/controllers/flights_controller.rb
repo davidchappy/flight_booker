@@ -1,11 +1,12 @@
 class FlightsController < ApplicationController
   def index
-    @from = Airport.all.map(&:code)
-    @to = Airport.all.map(&:code)
+    @airports = Airport.all.map{ |a| [a.code, a.id] }
     @passengers = (1..10)
-    @dates = Flight.all.map {|d| format_date(d.departure)}
-  end
-
-  def show
+    @dates = Flight.all.map {|d| [format_date(d.departure), d.departure]}.uniq
+    
+    @flights = Flight.where(  departure: params[:date],
+                              origin_id: params[:from],
+                              destination_id: params[:to]) unless params.nil?
+    @count = params[:passengers]
   end
 end

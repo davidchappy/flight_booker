@@ -24,12 +24,14 @@ Airport.create!(code: "CLT")
 
 8.times do |n|
   t = Time.now
-  departure = t + (n * 10)
+  departure = t + (n * 1000000)
   duration = 1 * n
   origin = Airport.all[n-1]
   destination = Airport.all[n]
-  Flight.create!( departure: departure, 
+  2.times do |x| 
+    Flight.create!( departure: departure, 
                   duration: duration, 
                   origin: origin, 
                   destination: destination)
+  end
 end
