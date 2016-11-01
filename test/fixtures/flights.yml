@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  departure: 2016-11-01 11:11:15
+  duration: 1
+  origin_id: 1
+  destination_id: 1
+
+two:
+  departure: 2016-11-01 11:11:15
+  duration: 1
+  origin_id: 1
+  destination_id: 1
