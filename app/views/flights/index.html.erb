@@ -1,2 +1,17 @@
-<h1>Flights#index</h1>
-<p>Find me in app/views/flights/index.html.erb</p>
+<h1>Search a Flight</h1>
+
+<%= form_tag('/', method: 'get') do %>
+  <%= label_tag :from %> 
+  <%= select_tag :from, options_for_select(@from) %>
+
+  <%= label_tag :to %> 
+  <%= select_tag :to, options_for_select(@to) %>
+
+  <%= label_tag :passengers %> 
+  <%= select_tag :passengers, options_for_select(@passengers) %>
+
+  <%= label_tag :date %> 
+  <%= select_tag :date, options_for_select(@dates) %>
+
+  <%= submit_tag "Search flights" %>
+<% end %>
