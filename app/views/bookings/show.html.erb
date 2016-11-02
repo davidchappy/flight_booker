@@ -1,0 +1,16 @@
+<h1>Your Flight</h1>
+
+<p>Departing from: <%= @origin %></p>
+<p>Arriving at: <%= @destination %></p>
+<p>Departuring on: <%= @date %></p>
+<p>Flight Number: <%= @number %></p>
+
+<h3>Passengers</h3>
+<ul>
+  <% @passengers.each do |passenger| %>
+  <li>
+      <p>Name: <%= passenger.name %></p>
+      <p>Email: <%= passenger.email %></p>
+  </li>
+  <% end %>
+</ul>

@@ -1,0 +1,24 @@
+<h1>Book Your Flight</h1>
+
+<p>Departing from: <%= @origin %></p>
+<p>Arriving at: <%= @destination %></p>
+<p>Departuring on: <%= @date %></p>
+<p>Flight Number: <%= @number %></p>
+
+
+<%= form_for(@booking, url: bookings_path) do |f| %>
+  <h3>Add Passenger Info</h3>
+  <ul>
+    <%= f.fields_for :passengers do |ff| %>
+      <li>
+        <%= ff.label :name %>
+        <%= ff.text_field :name %>
+
+        <%= ff.label :email %>
+        <%= ff.text_field :email %>
+      </li>
+    <% end %>
+  </ul>
+  <%= f.hidden_field :flight_id, value: @number %>
+  <%= f.submit "Submit Info" %>
+<% end %>
