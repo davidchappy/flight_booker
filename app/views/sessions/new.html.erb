@@ -1,0 +1,30 @@
+<div>
+  <div>
+    <h1>Log in</h1>
+  </div>
+
+  <div>
+    <%= form_for(:session, url: login_path) do |f| %>
+      <ul>
+        <li>   
+          <%= f.label :email %>
+          <%= f.email_field :email %>
+        </li>
+        <li>
+          <%= f.label :password %> 
+          <%= f.password_field :password %>
+        </li>
+        <li>
+          <%= f.submit "Log in" %>
+        </li>
+        <li >  
+          <p>Credentials:</p>
+          <p><strong>Email:</strong> davidchappy@gmail.com</p>
+          <p><strong>Password:</strong> password</p>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+
+
+</div>
