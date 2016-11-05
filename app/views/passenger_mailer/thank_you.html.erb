@@ -1,5 +1,10 @@
-<h1>Passenger#thank_you</h1>
+<h1>Welcome to example.com, <%= @user.name %></h1>
 
 <p>
-  <%= @greeting %>, find me in app/views/passenger_mailer/thank_you.html.erb
+  You have successfully signed up to Flight Bookings.
+  Your username is your email: <%= @user.email %>.<br>
 </p>
+<p>
+  To login to the site, just follow this link: <%= @url %>.
+</p>
+<p>Thanks for joining and have a great day!</p>
